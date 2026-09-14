@@ -1,7 +1,7 @@
 ---
 title: "Getting Started: Diamonds"
-author: "(Your name here)"
-date: 2020-
+author: "Dan Khoi Nguyen"
+date: 9/3/26
 output:
   github_document:
     toc: true
@@ -55,22 +55,41 @@ In this first stage, you will explore the `diamonds` dataset and document your o
 ```{r q1-task}
 ## TASK: Plot `price` vs `carat` below
 ## Your code here!
+diamonds %>% 
+  ggplot(aes(x = carat, y = price)) +
+  geom_point()
 ```
 
 **Observations**:
 
-- (Write your observations here!)
+- I can observe that the price of the diamonds goes up as the carat goes
+  up, which makes sense. I also notice that at each increment of carat,
+  the data points line up instead of spreading out, which I would infer
+  is either because of the way it is plotted or because pricing of
+  diamonds is centered around each carat. I can also observe that there
+  are fewer diamonds in general that are over 2.5 carats.
 
 ### __q2__ Create a visualization showing variables `carat`, `price`, and `cut` simultaneously. Experiment with which variable you assign to which aesthetic (`x`, `y`, etc.) to find an effective visual.
 
 ```{r q2-task}
 ## TASK: Plot `price`, `carat`, and `cut` below
 ## Your code here!
+diamonds %>% 
+  ggplot(aes(x = carat, y = price, color = cut)) +
+  geom_point(alpha = 0.3) + 
+  theme_minimal()
 ```
 
 **Observations**:
 
-- (Write your observations here!)
+- This plot differs from the q1 plot as it adds the cut of each diamond
+  which is a category of text and not a numerical value. A good way to
+  incorporate this into the plot is to use color to categorize each
+  point visualized. With this I can see that the fair diamonds are often
+  at the lower end of the graph, higher carat cheaper cost, which makes
+  sense realistically. THe opposite is also true where the more
+  expensive diamonds at each carat are ideal. Of course there is a lot
+  of overlap in the data but that is the main trend I can see.
 
 
 # Communication
